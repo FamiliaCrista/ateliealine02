@@ -12,8 +12,14 @@ export const HowItWorks: React.FC = () => {
     <section id="como-funciona" className="py-20 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with whileInView reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 bg-rose-50 border border-rose-200/60 px-4 py-1.5 rounded-full text-rose-800 text-xs sm:text-sm font-medium mb-4">
             <Sparkles className="w-4 h-4 text-rose-600" />
             <span>Passo a Passo Simples</span>
@@ -24,17 +30,17 @@ export const HowItWorks: React.FC = () => {
           <p className="text-stone-600 text-base sm:text-lg">
             Criar uma peça exclusiva com a Aline é um processo leve, carinhoso e totalmente guiado. Veja como é fácil:
           </p>
-        </div>
+        </motion.div>
 
-        {/* Steps Grid */}
+        {/* Steps Grid with staggered whileInView */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
           {STEPS.map((step, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.12 }}
               className="bg-[#FCFBF9] p-6 rounded-3xl border border-rose-100/60 shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative group"
             >
               <div>
@@ -61,8 +67,14 @@ export const HowItWorks: React.FC = () => {
           ))}
         </div>
 
-        {/* Call to action card */}
-        <div className="bg-gradient-to-r from-rose-50 via-amber-50/50 to-rose-50 p-8 sm:p-12 rounded-3xl border border-rose-200/60 shadow-md text-center max-w-4xl mx-auto">
+        {/* Call to action card with whileInView reveal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="bg-gradient-to-r from-rose-50 via-amber-50/50 to-rose-50 p-8 sm:p-12 rounded-3xl border border-rose-200/60 shadow-md text-center max-w-4xl mx-auto"
+        >
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-4">
             Pronta para criar uma peça única para o seu pequeno?
           </h3>
@@ -79,7 +91,7 @@ export const HowItWorks: React.FC = () => {
             <span>Iniciar Atendimento no WhatsApp</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

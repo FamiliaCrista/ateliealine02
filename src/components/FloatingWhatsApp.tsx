@@ -1,11 +1,16 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../data/atelierData';
+import { trackEvent } from '../utils/analytics';
 
 export const FloatingWhatsApp: React.FC = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     'Olá Aline! Visitei o site do ateliê e gostaria de tirar dúvidas sobre roupas personalizadas.'
   )}`;
+
+  const handleClick = () => {
+    trackEvent('whatsapp_click', 'floating_whatsapp_button');
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
@@ -18,6 +23,7 @@ export const FloatingWhatsApp: React.FC = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
         className="w-14 h-14 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 transition-all duration-300 focus:outline-none"
         aria-label="Falar no WhatsApp"
       >

@@ -20,8 +20,14 @@ export const Testimonials: React.FC = () => {
     <section id="depoimentos" className="py-20 lg:py-32 bg-[#FCFBF9] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header with whileInView reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 bg-rose-100/80 border border-rose-200/60 px-4 py-1.5 rounded-full text-rose-800 text-xs sm:text-sm font-medium mb-4">
             <Sparkles className="w-4 h-4 text-rose-600" />
             <span>Depoimentos</span>
@@ -32,10 +38,16 @@ export const Testimonials: React.FC = () => {
           <p className="text-stone-600 text-base sm:text-lg">
             Histórias reais de carinho, confiança e momentos inesquecíveis vestidos pelo nosso ateliê.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Testimonial Card Slider */}
-        <div className="max-w-4xl mx-auto relative bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-rose-100/60">
+        {/* Testimonial Card Slider with whileInView reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto relative bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-rose-100/60"
+        >
           <div className="absolute top-6 right-8 text-rose-200">
             <Quote className="w-16 h-16 opacity-50" />
           </div>
@@ -114,7 +126,7 @@ export const Testimonials: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
